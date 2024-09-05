@@ -25,14 +25,17 @@ function App(props) {
     const themeParams = useThemeParams();
     const viewport = useViewport();
 
+    // Bind CSS variables to the root element.
     useEffect(() => {
         return bindMiniAppCSSVars(miniApp, themeParams);
     }, [miniApp, themeParams]);
 
+    // Bind CSS variables to the root element.
     useEffect(() => {
         return bindThemeParamsCSSVars(themeParams);
     }, [themeParams]);
 
+    // Bind CSS variables to the root element.
     useEffect(() => {
         return viewport && bindViewportCSSVars(viewport);
     }, [viewport]);
