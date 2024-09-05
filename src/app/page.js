@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       {/* Menampilkan id user */}
-      <p>{userId}</p>
+      <p>Id user: {userId}</p>
     </>
   );
 }
