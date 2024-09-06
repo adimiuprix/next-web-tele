@@ -22,10 +22,16 @@ export default function Home() {
 
   return (
     <>
-      {/* Menampilkan id user */}
-      <p>Id user: {userId}</p>
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md max-w-md mx-auto my-4">
+        {/* Menampilkan id user */}
+        <p className="text-lg font-semibold text-gray-700">
+          Id user: <span className="text-indigo-500">{userId}</span>
+        </p>
 
-      <p>Start Param: {startParam}</p>
+        <p className="mt-2 text-lg font-semibold text-gray-700">
+          Start Param: <span className="text-indigo-500">{startParam}</span>
+        </p>
+      </div>
     </>
   );
 }
