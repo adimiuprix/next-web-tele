@@ -8,13 +8,24 @@ function DataUser() {
   return user;  // Mengembalikan id user
 }
 
+// Fungsi untuk mendapatkan startParam dari initData
+function StartParam() {
+  const initData = useInitData();
+  const param = initData.startParam;
+  return param;
+}
+
 // Fungsi untuk menampilkan halaman home
 export default function Home() {
   const userId = DataUser();  // Mendapatkan id user
+  const startParam = StartParam();
+
   return (
     <>
       {/* Menampilkan id user */}
       <p>Id user: {userId}</p>
+
+      <p>Start Param: {startParam}</p>
     </>
   );
 }
