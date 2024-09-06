@@ -70,13 +70,11 @@ function RootInner({ children }) {
     }, [debug]);
 
     return (
-        <TonConnectUIProvider manifestUrl={manifestUrl}>
-            <SDKProvider acceptCustomStyles debug={debug}>
-                <App>
-                    {children}
-                </App>
-            </SDKProvider>
-        </TonConnectUIProvider>
+        <SDKProvider acceptCustomStyles debug={debug}>
+            <TonConnectUIProvider manifestUrl={manifestUrl}>
+                <App>{children}</App>
+            </TonConnectUIProvider>
+        </SDKProvider>
     );
 }
 
