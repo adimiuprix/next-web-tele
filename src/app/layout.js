@@ -1,7 +1,6 @@
+import { Root } from "@/components/Root";
 import localFont from "next/font/local";
 import "./globals.css";
-import '@telegram-apps/telegram-ui/dist/styles.css';
-import { Wrapper } from "./components/Wrapper"; // import the Wrapper component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,11 +24,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Wrapper component is used to wrap the children components
-        It is used to provide the theme and other global styles */}
-        <Wrapper>
+        <Root>
           {children}
-        </Wrapper>
+        </Root>
       </body>
     </html>
   );

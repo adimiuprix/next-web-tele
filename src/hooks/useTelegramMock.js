@@ -1,4 +1,4 @@
-import { useClientOnce } from './useCLientOnce'
+import { useClientOnce } from "./useClientOnce";
 import { mockTelegramEnv, parseInitData, retrieveLaunchParams } from '@telegram-apps/sdk-react';
 
 /**

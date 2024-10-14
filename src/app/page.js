@@ -1,37 +1,34 @@
 'use client';
-import { useInitData } from '@telegram-apps/sdk-react';
 
-// Fungsi untuk mendapatkan data user dari initData
-function DataUser() {
-  const initData = useInitData(); // Mendapatkan data user dari initData
-  const user = initData.user ? initData.user.id : null; // Mendapatkan id user
-  return user;  // Mengembalikan id user
-}
+import { useSignal, initData } from '@telegram-apps/sdk-react';
 
-// Fungsi untuk mendapatkan startParam dari initData
-function StartParam() {
-  const initData = useInitData();
-  const param = initData.startParam;
-  return param;
-}
-
-// Fungsi untuk menampilkan halaman home
-export default function Home() {
-  const userId = DataUser();  // Mendapatkan id user
-  const startParam = StartParam();
+export default function InitDataPage() {
+  
+  const initDataState = useSignal(initData.state);
 
   return (
-    <>
-      <div className="p-6 bg-gray-100 rounded-lg shadow-md max-w-md mx-auto my-4">
-        {/* Menampilkan id user */}
-        <p className="text-lg font-semibold text-gray-700">
-          Id user: <span className="text-indigo-500">{userId}</span>
-        </p>
-
-        <p className="mt-2 text-lg font-semibold text-gray-700">
-          Start Param: <span className="text-indigo-500">{startParam}</span>
-        </p>
-      </div>
-    </>
+        <>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>id:</strong> {initDataState.user.id}
+          </div>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>username:</strong> {initDataState.user.username}
+          </div>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>photo_url:</strong> {initDataState.user.photoUrl}
+          </div>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>last_name:</strong> {initDataState.user.lastName}
+          </div>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>first_name:</strong> {initDataState.user.firstName}
+          </div>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>is_bot:</strong> {initDataState.user.isBot ? 'Yes' : 'No'}
+          </div>
+          <div style={{ padding: '8px 0', borderBottom: '1px solid #ddd' }}>
+            <strong>is_premium:</strong> {initDataState.user.isPremium ? 'Yes' : 'No'}
+          </div>
+        </>
   );
-}
+};
